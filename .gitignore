@@ -37,12 +37,6 @@ Thumbs.db
 .settings/
 .worksheet/
 
-# idea
-*.iml
-*.ipr
-*.iws
-.idea/
-
 # netbeans
 /nbproject
 
