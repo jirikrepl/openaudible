@@ -947,7 +947,7 @@ public class AudibleGUI implements BookListener, ConnectionListener {
 				e.printStackTrace();
 			}
 			// only alert if new version is available.
-			VersionCheck.instance.checkForUpdate(getShell(), false);
+			// VersionCheck.instance.checkForUpdate(getShell(), false);
 			
 		}).start();
 	}
