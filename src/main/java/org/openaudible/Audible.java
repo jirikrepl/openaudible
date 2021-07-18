@@ -306,7 +306,7 @@ public class Audible implements IQueueListener<Book> {
 			String name = f.getName();
 			if (name.startsWith("."))
 				continue;
-			if (dir == Directories.MP3 && !name.toLowerCase().endsWith(".mp3"))
+			if (dir == Directories.MP3 && !name.toLowerCase().endsWith(".m4a"))
 				continue;
 			if (dir == Directories.AAX && !name.toLowerCase().endsWith(".aax"))
 				continue;
@@ -596,7 +596,7 @@ public class Audible implements IQueueListener<Book> {
 	}
 	
 	public File getMP3FileDest(Book b) {
-		return Directories.MP3.getDir(b.getProduct_id() + ".mp3");
+		return Directories.MP3.getDir(b.getProduct_id() + ".m4a");
 	}
 	
 	public boolean hasImage(Book b) {

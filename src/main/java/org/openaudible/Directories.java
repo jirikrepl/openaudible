@@ -159,7 +159,7 @@ public enum Directories {
 	public static void cleanTempDir() {
 		for (File f : getTmpDir().listFiles()) {
 			String n = f.getName();
-			if (n.endsWith(".part") || n.endsWith("_temp.mp3"))
+			if (n.endsWith(".part") || n.endsWith("_temp.m4a"))
 				f.delete();
 		}
 		

@@ -802,7 +802,7 @@ public class AudibleGUI implements BookListener, ConnectionListener {
 		String out = "";
 		if (b != null) {
 			if (hasMP3(b))
-				return "Converted to MP3";
+				return "Converted to M4A";
 			if (hasAAX(b)) {
 				if (audible.convertQueue.isQueued(b))
 					return "In convert queue";
@@ -810,7 +810,7 @@ public class AudibleGUI implements BookListener, ConnectionListener {
 					return "Converting...";
 				if (!audible.convertQueue.canAdd(b))
 					return "Unable to convert";     // ?
-				return "Ready to convert to MP3";
+				return "Ready to convert to M4A";
 			}
 			
 			if (audible.downloadQueue.isQueued(b))
