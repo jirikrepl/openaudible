@@ -40,7 +40,7 @@ public class ConvertJob implements IQueueJob, LineListener {
 		aax = Audible.instance.getAAXFileDest(b);
 		mp3 = Audible.instance.getMP3FileDest(b);
 		image = Audible.instance.getImageFileDest(b);
-		temp = new File(Directories.getTmpDir(), book.id() + "_temp.mp3");
+		temp = new File(Directories.getTmpDir(), book.id() + "_temp.m4a");
 		duration = book.getDuration();
 		
 		if (mp3.exists())
@@ -140,16 +140,21 @@ public class ConvertJob implements IQueueJob, LineListener {
 		}
 		
 		
+		// args.add("-codec:a");
+		// args.add("libmp3lame");     // see: https://trac.ffmpeg.org/wiki/Encode/MP3
+		// args.add("-qscale:a");      // https://trac.ffmpeg.org/wiki/Encode/MP3
+		
+		
+		// if (mp3Qscale < 0 || mp3Qscale > 9)
+		//	throw new IOException("Invalid qscale:" + mp3Qscale);
+		
+		// args.add("" + mp3Qscale);
+
 		args.add("-codec:a");
-		args.add("libmp3lame");     // see: https://trac.ffmpeg.org/wiki/Encode/MP3
-		args.add("-qscale:a");      // https://trac.ffmpeg.org/wiki/Encode/MP3
-		
-		
-		if (mp3Qscale < 0 || mp3Qscale > 9)
-			throw new IOException("Invalid qscale:" + mp3Qscale);
-		
-		args.add("" + mp3Qscale);
-		
+		args.add("copy");
+		args.add("-c:v");
+		args.add("copy");
+
 		args.add(temp.getAbsolutePath());
 		
 		LOG.info("creating mp3: " + book + " " + temp.getAbsolutePath());
