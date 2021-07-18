@@ -47,6 +47,20 @@ cd openaudible
 mvn compile
 mvn package
 ```
+
+## My build & run for macOS
+Maven compile plugin will create jars in `target` folder
+
+    mvn clean compile assembly:single
+
+create alias which adds `org.eclipse.swt.cocoa.macosx` library on a classpath
+
+    alias openaudible="java -ea -Dfile.encoding=UTF-8 -XstartOnFirstThread -cp $HOME/code/openaudible/swt/org.eclipse.swt.cocoa.macosx.x86_64-4.6.jar:$HOME/code/openaudible/target/openaudible-full.jar org.openaudible.desktop.Application"
+
+run in terminal
+   
+    openaudible
+
 ## Running/Debugging
 
 Your IDE should link the platform specific SWT library via the maven profile.
